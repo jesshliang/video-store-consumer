@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
+import DashboardItem from './components/DashboardItem';
 
 class App extends Component {
   render() {
@@ -42,7 +43,7 @@ class App extends Component {
             <About />
           </Route>
           <Route path="/dashboard">
-            <Dashboard />
+            <DashboardItem />
           </Route>
         </Switch>
       </div>
@@ -66,14 +67,6 @@ function About() {
   return (
     <div>
       <h2>About</h2>
-    </div>
-  );
-}
-
-function Dashboard() {
-  return (
-    <div>
-      <h2>Dashboard</h2>
     </div>
   );
 }
