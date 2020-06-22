@@ -5,7 +5,6 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import logo from './logo.svg';
 import './App.css';
 import Library from './components/Library';
 import Customers from './components/Customers';
