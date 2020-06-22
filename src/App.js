@@ -5,7 +5,6 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
 import './App.css';
 import Search from './components/Search';
 import Library from './components/Library';
