@@ -19,6 +19,10 @@ const Customers = () => {
               <Customer
                 id={customer.id}
                 name={customer.name}
+                registered={customer.registered_at}
+                address={customer.address}
+                city={customer.city}
+                state={customer.state}
               />
             </p>
           );
@@ -34,7 +38,7 @@ const Customers = () => {
 
 
   return(
-    <div className="Customers" >
+    <div className="customers" >
       { errorMessage ? <div><h2 className="error-msg">{errorMessage}</h2></div> : '' }
       { customerList }
     </div>

@@ -1,0 +1,15 @@
+.customers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.customer-box {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: lightgrey;
+}
+
+.customer-info {
+
+}

@@ -1,13 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-const Customer = ({name, id}) => {
+import './Customer.css'
 
-
+const Customer = ({name, id, registered, address, city, state}) => {
 
   return(
-    <div className="Customer" >
-      <p>Name: {name}</p>
-      <p>ID: {id}</p>
+    <div className="customer-box" >
+      <div className='customer-info'>
+        <p>Customer: {name}</p>
+        <p>Registered: {registered}</p>
+        <p>Address: {address}</p>
+        <p>City: {city}</p>
+        <p>State: {state}</p>
+      </div>
     </div>
   );
 
