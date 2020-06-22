@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import './App.css';
+import Search from './components/Search';
 import Library from './components/Library';
 import Customers from './components/Customers';
 
@@ -66,14 +67,6 @@ function Home() {
   return (
     <div>
       <h2>Home</h2>
-    </div>
-  );
-}
-
-function Search() {
-  return (
-    <div>
-      <h2>About</h2>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LibraryItems = (props) => {
+const LibraryItem = (props) => {
   
   return(
     <ul>
@@ -18,4 +18,4 @@ const LibraryItems = (props) => {
 
 }
 
-export default LibraryItems;
+export default LibraryItem;
