@@ -7,7 +7,8 @@ import {
 } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
-import DashboardItem from './components/DashboardItem';
+import Library from './components/Library';
+import Customers from './components/Customers';
 
 class App extends Component {
   render() {
@@ -19,10 +20,13 @@ class App extends Component {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/search">search</Link>
           </li>
           <li>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/library">Library</Link>
+          </li>
+          <li>
+            <Link to="/customers">Customers</Link>
           </li>
         </ul>
 
@@ -39,11 +43,14 @@ class App extends Component {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/about">
-            <About />
+          <Route path="/search">
+            <Search />
           </Route>
-          <Route path="/dashboard">
-            <DashboardItem />
+          <Route path="/library">
+            <Library />
+          </Route>
+          <Route path="/customers">
+            <Customers />
           </Route>
         </Switch>
       </div>
@@ -63,7 +70,7 @@ function Home() {
   );
 }
 
-function About() {
+function Search() {
   return (
     <div>
       <h2>About</h2>
