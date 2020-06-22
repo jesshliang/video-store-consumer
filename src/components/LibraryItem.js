@@ -1,11 +1,19 @@
 import React from 'react';
 
-const LibraryItems = () => {
+const LibraryItems = (props) => {
   
   return(
-    <section className="timeline-event">
-			DOES THIS WORK.
-    </section>
+    <ul>
+			<li>
+				{ props.title }
+			</li>
+			<li>
+				{ props.overview }
+			</li>
+			<li>
+				{ props.releaseDate }
+			</li>
+    </ul>
   );
 
 }

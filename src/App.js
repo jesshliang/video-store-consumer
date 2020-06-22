@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import logo from './logo.svg';
+
 import './App.css';
 import Library from './components/Library';
 import Customers from './components/Customers';
@@ -20,7 +20,7 @@ class App extends Component {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/search">search</Link>
+            <Link to="/search">Search</Link>
           </li>
           <li>
             <Link to="/library">Library</Link>
