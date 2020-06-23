@@ -3,16 +3,17 @@ import axios from 'axios';
 import './Library.css';
 import LibraryItem from './LibraryItem';
 
-const Library = () => {
+const Library = (props) => {
   const BASE_URL = "http://localhost:3000/"
   const [movieList, setMovieList] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
   const newMovieList = [];
-
+  console.log(props)
   useEffect(() => {
     axios.get(BASE_URL + "movies/")
     .then( (response) => {
       console.log(response);
+      
       for (let movie of response.data) {
         newMovieList.push(
           <section>
@@ -24,6 +25,8 @@ const Library = () => {
               releaseDate={ movie.release_date } 
               externalID={ movie.external_id }
               imageURL={ movie.image_url }
+              selected_id={props.selectedMovie}
+              onUpdateSelected={props.onUpdateSelectedMovie}
             />
           </section>
         );
@@ -34,11 +37,12 @@ const Library = () => {
       setErrorMessage(error.message);
       console.log(error.message);
     });
-  }, []);
+  }, [props.selectedMovie]);
 
   return(
     <div>
       <h2>All Movies</h2>
+      {errorMessage}
       <div className="show-all-movies">
         { movieList }
       </div>

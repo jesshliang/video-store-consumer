@@ -17,7 +17,11 @@ const App = () => {
   const [selectedCustomer, setSelectedCustomer] = useState({
     name: '',
     id: null,
-  })
+  });
+  const [selectedMovie, setSelectedMovie] = useState({
+    title: '',
+    id: null,
+  });
   const [customerList, setCustomerList] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -36,6 +40,15 @@ const App = () => {
 
     setSelectedCustomer({
       name: newSelected.name,
+      id: newSelected.id
+    })
+  };
+
+  const updateSelectedMovie = (newSelected) => {
+    console.log(newSelected)
+
+    setSelectedMovie({
+      title: newSelected.title,
       id: newSelected.id
     })
   };
@@ -96,6 +109,7 @@ const App = () => {
 
           <div className='rental-form'>
             { selectedCustomer.name }
+            { selectedMovie.title }
             <NewRentalForm addRentalCallback={checkout}/>
           </div>
 
@@ -119,7 +133,10 @@ const App = () => {
             <Search addMovieCreationCallback={ addMovieToLibrary }/>
           </Route>
           <Route path="/library">
-            <Library />
+            <Library 
+              onUpdateSelectedMovie={updateSelectedMovie}
+              selectedMovie={selectedMovie.id}
+            />
           </Route>
           <Route path="/customers">
             <CustomerCollection 
