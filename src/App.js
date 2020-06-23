@@ -23,6 +23,7 @@ const App = () => {
     id: null,
   });
   const [customerList, setCustomerList] = useState([]);
+  const [successMessage, setSuccessMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
@@ -35,32 +36,40 @@ const App = () => {
       })
   }, []);
 
+
+
   const updateSelectedCustomer = (newSelected) => {
     console.log(newSelected)
 
     setSelectedCustomer({
       name: newSelected.name,
       id: newSelected.id
-    })
+    });
   };
 
   const updateSelectedMovie = (newSelected) => {
-    console.log(newSelected)
-
     setSelectedMovie({
       title: newSelected.title,
       id: newSelected.id
-    })
+    });
+    setSuccessMessage(`Movie ${newSelected.title} has been selected`)
   };
 
-  const checkout = (rental) => {
-    const rental_params = BASE_URL + `rentals/${rental.movie}/check-out`;
+  const showRentalButton = () => {
+    console.log(selectedCustomer)
+    if (!(selectedMovie.id === null) && !(selectedCustomer.id === null)) {
+      return true;
+    };
+  };
+
+  const checkout = () => {
+    const rental_params = BASE_URL + `rentals/${selectedMovie.title}/check-out`;
 
     axios({
       method: 'post',
       url: rental_params,
       params: {
-        customer_id: rental.customer,
+        customer_id: selectedCustomer.id,
         due_date: '2020/12/30'
       }
     })
@@ -69,6 +78,7 @@ const App = () => {
     })
     .catch((error) => {
       console.log(error)
+      setErrorMessage(error.message);
     });
   };
 
@@ -106,17 +116,20 @@ const App = () => {
             </li>
           </ul>
 
-
+        { errorMessage ? <div><h2 className="error-msg">{errorMessage}</h2></div> : '' }
+        { successMessage ? <div><h2 className="success-msg">{successMessage}</h2></div> : '' }
           <div className='rental-form'>
             { selectedCustomer.name }
             { selectedMovie.title }
+            <button onClick={checkout}>
+              {showRentalButton() ? "Create Rental" : "Select Customer and Movie"}
+            </button>
             <NewRentalForm addRentalCallback={checkout}/>
           </div>
 
           <hr />
 
         </header>
-
         {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path
