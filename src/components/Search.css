@@ -11,3 +11,9 @@
 .item-link:hover {
 	font-style: italic;
 }
+
+.add-movie-alert {
+	background-color: #cedceb;
+	margin-top: 2em;
+	padding: 1em;
+}

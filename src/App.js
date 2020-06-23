@@ -20,6 +20,7 @@ const App = () => {
   })
   const [customerList, setCustomerList] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [addMovieAlert, setAddMovieAlert] = useState('');
 
   useEffect(() => {
     axios.get(BASE_URL + "customers/")
@@ -66,10 +67,12 @@ const App = () => {
       params: movie 
     })
     .then((response) => {
+      setAddMovieAlert(`${ response.data.title } added to library!`);
       console.log(response)
     })
     .catch((error) => {
-      console.log(error)
+      setAddMovieAlert("This movie is already in the library.");
+      console.log(error);
     });
   };
 
@@ -113,13 +116,13 @@ const App = () => {
             { errorMessage ? <div><h2 className="error-msg">{errorMessage}</h2></div> : '' }
           </Route>
           <Route path="/search">
-            <Search addMovieCreationCallback={ addMovieToLibrary }/>
+            <Search addMovieCreationCallback={ addMovieToLibrary } addMovieAlert={ addMovieAlert } />
           </Route>
           <Route path="/library">
             <Library />
           </Route>
           <Route path="/customers">
-            <CustomerCollection customers={customerList} onUpdateSelected={updateSelected} selected={selected.id}/>
+            <CustomerCollection customers={customerList} onUpdateSelected={updateSelected} selected={selected.id} />
           </Route>
         </Switch>
       </div>
