@@ -59,11 +59,24 @@ const App = () => {
     });
   };
 
+  const addMovieToLibrary = (movie) => {
+    axios({
+      method: 'post',
+      url: BASE_URL + 'movies/',
+      params: movie 
+    })
+    .then((response) => {
+      console.log(response)
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+  };
 
   return (
     <Router>
       <div>
-        <div className='nav'>
+        <header className="app-header">
           <h1>Title of Our Movie App</h1>
           <ul>
             <li>
@@ -79,14 +92,16 @@ const App = () => {
               <Link to="/customers">Customers</Link>
             </li>
           </ul>
-        </div>
 
-        <div className='rental-form'>
-          { selected.name }
-          <NewRentalForm addRentalCallback={checkout}/>
-        </div>
 
-        <hr />
+          <div className='rental-form'>
+            { selected.name }
+            <NewRentalForm addRentalCallback={checkout}/>
+          </div>
+
+          <hr />
+
+        </header>
 
         {/*
           A <Switch> looks through all its children <Route>
@@ -101,7 +116,7 @@ const App = () => {
             { errorMessage ? <div><h2 className="error-msg">{errorMessage}</h2></div> : '' }
           </Route>
           <Route path="/search">
-            <Search />
+            <Search addMovieCreationCallback={ addMovieToLibrary }/>
           </Route>
           <Route path="/library">
             <Library />
