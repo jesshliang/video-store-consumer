@@ -7,26 +7,25 @@ const API_URL_BASE = 'http://localhost:3000/customers';
 const Customers = () => {
   const [customerList, setCustomerList] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
-  const newCustomerList = [];
 
   useEffect(() => {
     axios.get(API_URL_BASE)
       .then( (response) => {
         const apiCustomerList = response.data;
-        for (let customer of apiCustomerList) {
-          newCustomerList.push(
-            <p key={customer.id}>
-              <Customer
-                id={customer.id}
+        const newCustomerList = apiCustomerList.map((customer) => {
+          return (
+            <Customer
+                key={customer.id}
                 name={customer.name}
                 registered={customer.registered_at}
                 address={customer.address}
                 city={customer.city}
                 state={customer.state}
+                movies_checked_out_count={customer.movies_checked_out_count}
               />
-            </p>
           );
-        };
+        });
+
         setCustomerList(newCustomerList);
       })
       .catch( (error) => {
