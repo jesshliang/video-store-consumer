@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import {
+  Link
+} from "react-router-dom";
 import axios from 'axios';
 import SearchForm from './SearchForm';
 import LibraryItem from './LibraryItem';
@@ -6,7 +9,7 @@ import './LibraryItem.css';
 import './Library.css';
 import './Search.css';
 
-const Search = () => {
+const Search = (props) => {
 
 	const BASE_URL = "http://localhost:3000/"
 	const [errorMessage, setErrorMessage] = useState(null);
@@ -15,6 +18,13 @@ const Search = () => {
 
 	const searchMovieDatabase = (searchTerm) => {
 		console.log(searchTerm)
+
+		const onSubmitHandler = (movie) => {
+			// console.log(event);
+			// event.preventDefault();
+	
+			props.addMovieCreationCallback(movie);
+		};
 
 		axios.get(BASE_URL + "movies/", {
 			params: {
@@ -35,7 +45,7 @@ const Search = () => {
 							externalID={ movie.external_id }
 							imageURL={ movie.image_url }
 						/>
-						<a href="" className="item-link">Add to Library</a>
+						<Link onClick={ () => onSubmitHandler(movie) } className="item-link">Add to Library</Link>
 					</section>
 				);
 			};

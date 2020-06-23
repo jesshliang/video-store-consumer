@@ -46,6 +46,19 @@ const App = () => {
     });
   };
 
+  const addMovieToLibrary = (movie) => {
+    axios({
+      method: 'post',
+      url: BASE_URL + 'movies/',
+      params: movie 
+    })
+    .then((response) => {
+      console.log(response)
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+  };
 
   return (
     <Router>
@@ -82,7 +95,7 @@ const App = () => {
             <NewRentalForm addRentalCallback={checkout}/>
           </Route>
           <Route path="/search">
-            <Search />
+            <Search addMovieCreationCallback={ addMovieToLibrary }/>
           </Route>
           <Route path="/library">
             <Library />
