@@ -50,21 +50,27 @@ const App = () => {
   return (
     <Router>
       <div>
-        <h1>Title of Our Movie App</h1>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/search">Search</Link>
-          </li>
-          <li>
-            <Link to="/library">Library</Link>
-          </li>
-          <li>
-            <Link to="/customers">Customers</Link>
-          </li>
-        </ul>
+        <div className='nav'>
+          <h1>Title of Our Movie App</h1>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/search">Search</Link>
+            </li>
+            <li>
+              <Link to="/library">Library</Link>
+            </li>
+            <li>
+              <Link to="/customers">Customers</Link>
+            </li>
+          </ul>
+        </div>
+
+        <div className='rental-form'>
+          <NewRentalForm addRentalCallback={checkout}/>
+        </div>
 
         <hr />
 
@@ -79,7 +85,6 @@ const App = () => {
           <Route exact path="/">
             <Home />
             { errorMessage ? <div><h2 className="error-msg">{errorMessage}</h2></div> : '' }
-            <NewRentalForm addRentalCallback={checkout}/>
           </Route>
           <Route path="/search">
             <Search />
