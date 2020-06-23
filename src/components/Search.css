@@ -1,7 +1,19 @@
 .item-link {
+	color: #45A29E;
 	display: block;
-	background-color: #888;
-	width: 40vw;
+	background-color: #cedceb;
+	width: 40em;
 	margin: 0 1em 2em;
+	padding: 1em;
+	text-decoration: none;
+}
+
+.item-link:hover {
+	font-style: italic;
+}
+
+.add-movie-alert {
+	background-color: #cedceb;
+	margin-top: 2em;
 	padding: 1em;
 }

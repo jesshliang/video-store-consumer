@@ -1,9 +1,9 @@
 .movie-listing {
-	background-color: #ccc;
+	background-color: #f7f9fb;
 	display: grid;
 	grid-template-columns: auto 2fr;
 	gap: 1em;
-	width: 40vw;
+	width: 40em;
 	margin: 1em;
 	padding: 1em;
 }

@@ -24,13 +24,13 @@ const Customer = (props) => {
   return(
     <div className="customer-box" >
       <div className='customer-info'>
-        <p>Customer: {props.name}</p>
-        <p>Registered: {props.registered}</p>
-        <p>Address: {props.address}</p>
-        <p>City: {props.city}</p>
-        <p>State: {props.state}</p>
-        <p>Moves checked out: {props.movies_checked_out_count}</p>
-        <p>selected: {props.selected}</p>
+        <p><strong>Customer: </strong>{props.name}</p>
+        <p><strong>Registered: </strong>{props.registered}</p>
+        <p><strong>Address: </strong>{props.address}</p>
+        <p><strong>City: </strong>{props.city}</p>
+        <p><strong>State: </strong>{props.state}</p>
+        <p><strong>Moves Checked Out: </strong>{props.movies_checked_out_count}</p>
+        <p><strong>Selected: </strong>{props.selected}</p>
         <button onClick={onButtonClick}>
           {selected() ? 'Selected' : 'Select'}
         </button>

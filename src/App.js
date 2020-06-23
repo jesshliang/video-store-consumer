@@ -25,6 +25,7 @@ const App = () => {
   const [movieList, setMovieList] = useState([]);
   const [successMessage, setSuccessMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [addMovieAlert, setAddMovieAlert] = useState('');
 
   useEffect(() => {
     axios.get(BASE_URL + "customers/")
@@ -98,10 +99,16 @@ const App = () => {
       params: movie 
     })
     .then((response) => {
+      setAddMovieAlert(`${ response.data.title } added to library!`);
       console.log(response)
     })
     .catch((error) => {
+<<<<<<< HEAD
       setErrorMessage(error.message);
+=======
+      setAddMovieAlert("This movie is already in the library.");
+      console.log(error);
+>>>>>>> feat-final-styling
     });
   };
 
@@ -155,7 +162,7 @@ const App = () => {
             <Home />
           </Route>
           <Route path="/search">
-            <Search addMovieCreationCallback={ addMovieToLibrary }/>
+            <Search addMovieCreationCallback={ addMovieToLibrary } addMovieAlert={ addMovieAlert } />
           </Route>
           <Route path="/library">
             <Library 
@@ -165,11 +172,15 @@ const App = () => {
             />
           </Route>
           <Route path="/customers">
+<<<<<<< HEAD
             <CustomerCollection 
               customers={customerList} 
               onUpdateSelectedCustomer={updateSelectedCustomer} 
               selectedCustomer={selectedCustomer.id}
             />
+=======
+            <CustomerCollection customers={customerList} onUpdateSelected={updateSelected} selected={selected.id} />
+>>>>>>> feat-final-styling
           </Route>
         </Switch>
       </div>

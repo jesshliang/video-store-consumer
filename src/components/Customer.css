@@ -8,5 +8,6 @@
   flex-direction: column;
   margin-top: 20px;
   padding: 10px;
-  background-color: lightgrey;
+  width: 22em;
+	background-color: #f7f9fb;
 }

@@ -20,9 +20,6 @@ const Search = (props) => {
 		console.log(searchTerm)
 
 		const onSubmitHandler = (movie) => {
-			// console.log(event);
-			// event.preventDefault();
-	
 			props.addMovieCreationCallback(movie);
 		};
 
@@ -61,6 +58,12 @@ const Search = (props) => {
   return (
 		<div>
 			<SearchForm addSearchCallback={ searchMovieDatabase } />
+
+			{ props.addMovieAlert !== '' &&
+        <p className="add-movie-alert">
+					{ props.addMovieAlert }
+				</p>
+      }
 
 			<div className="show-all-movies">
         { displaySearch }
