@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,11 +6,38 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
+import axios from 'axios';
 import Search from './components/Search';
 import Library from './components/Library';
 import CustomerCollection from './components/CustomerCollection';
 
 const App = () => {
+  const BASE_URL = 'http://localhost:3000/'
+  const [customerList, setCustomerList] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  useEffect(() => {
+    axios.get(BASE_URL + "customers/")
+      .then((response) => {
+        setCustomerList(response.data);
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      })
+  }, []);
+
+  const checkout = () => {
+    axios.post(BASE_URL + 'rentals/Jaws/', {
+      customer_id: 1,
+      due_date: 2020/07/17
+    })
+    .then((response) => {
+      console.log(response)
+    })
+    .catch(() => {
+      console.log(error.messages)
+    });
+  };
 
 
   return (
@@ -52,7 +79,7 @@ const App = () => {
             <Library />
           </Route>
           <Route path="/customers">
-            <CustomerCollection />
+            <CustomerCollection customers={customerList}/>
           </Route>
         </Switch>
       </div>
