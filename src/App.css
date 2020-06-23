@@ -1,12 +1,13 @@
 .app-header {
-  background-color: #393e46;
+  background-color: #0b0c10;
   padding: 2em 2em 1em;
   text-align: center;
 }
 
 .app-header h1 {
-  color: #fff;
-  margin: 1em 0 2em;
+  color: #f7f9fb;
+  font-size: 3em;
+  margin: 1em 0 1.5em;
 }
 
 .app-header ul {
@@ -19,7 +20,10 @@
 }
 
 .app-header ul a {
+  font-size: 1.2em;
+  font-weight: 800;
   color: #00adb5;
+  letter-spacing: 0.1em;
   text-decoration: none;
 }
 

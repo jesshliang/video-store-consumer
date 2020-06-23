@@ -38,7 +38,7 @@ const Library = () => {
 
   return(
     <div>
-      <h2>All Movies</h2>
+      <h1>All Movies</h1>
       <div className="show-all-movies">
         { movieList }
       </div>

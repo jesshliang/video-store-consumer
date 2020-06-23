@@ -24,7 +24,7 @@ const Search = (props) => {
 
   return (
 		<form onSubmit={ onSubmitHandler }>
-			<h2>Search for a Movie</h2>
+			<h1>Search for a Movie</h1>
 			<div>
 				<div>
 					{/* <label className="new-card-form__form-label" htmlFor="text">Text: </label> */}

@@ -77,7 +77,7 @@ const App = () => {
     <Router>
       <div>
         <header className="app-header">
-          <h1>Title of Our Movie App</h1>
+          <h1>Cool Movies</h1>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -92,16 +92,13 @@ const App = () => {
               <Link to="/customers">Customers</Link>
             </li>
           </ul>
-
-
-          <div className='rental-form'>
-            { selected.name }
-            <NewRentalForm addRentalCallback={checkout}/>
-          </div>
-
-          <hr />
-
         </header>
+
+        <div className='rental-form'>
+          { selected.name }
+          <NewRentalForm addRentalCallback={checkout}/>
+        </div>
+
 
         {/*
           A <Switch> looks through all its children <Route>
