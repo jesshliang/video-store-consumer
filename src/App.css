@@ -1,7 +1,13 @@
 .app-header {
+  display: flex;
+  justify-content: space-around;
   background-color: #393e46;
   padding: 2em 2em 1em;
   text-align: center;
+}
+
+.app-header__nav {
+  min-width: 700px;
 }
 
 .app-header h1 {
@@ -25,5 +31,21 @@
 
 .app-header ul a:hover {
   color: #222831;
+}
+
+.app-header__selections {
+  max-height: 150px;
+  box-shadow: 7px 7px;
+  background-color: rgb(72, 72, 72);
+  padding: 1em 2em 2em 1em;
+}
+
+.app-header__selections h2 {
+  color: #00adb5;
+}
+
+.app-header__selections p {
+  text-align: left;
+  color:  white;
 }
 

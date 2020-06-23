@@ -44,6 +44,7 @@ const App = () => {
       name: newSelected.name,
       id: newSelected.id
     });
+    setSuccessMessage(`Customer ${newSelected.name} has been selected`)
   };
 
   const updateSelectedMovie = (newSelected) => {
@@ -74,6 +75,7 @@ const App = () => {
     })
     .then((response) => {
       console.log(response)
+      setSuccessMessage("Successfully made rental")
     })
     .catch((error) => {
       console.log(error)
@@ -99,33 +101,38 @@ const App = () => {
     <Router>
       <div>
         <header className="app-header">
-          <h1>Title of Our Movie App</h1>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/search">Search</Link>
-            </li>
-            <li>
-              <Link to="/library">Library</Link>
-            </li>
-            <li>
-              <Link to="/customers">Customers</Link>
-            </li>
-          </ul>
+          <div className='app-header__nav'>
+            <h1>Title of Our Movie App</h1>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/search">Search</Link>
+              </li>
+              <li>
+                <Link to="/library">Library</Link>
+              </li>
+              <li>
+                <Link to="/customers">Customers</Link>
+              </li>
+            </ul>
 
-        { errorMessage ? <div><h2 className="error-msg">{errorMessage}</h2></div> : '' }
-        { successMessage ? <div><h2 className="success-msg">{successMessage}</h2></div> : '' }
-          <div className='rental-form'>
-            { selectedCustomer.name }
-            { selectedMovie.title }
-            <button onClick={checkout}>
-              {showRentalButton() ? "Create Rental" : "Select Customer and Movie"}
-            </button>
+            { errorMessage ? <div><h2 className="error-msg">{errorMessage}</h2></div> : '' }
+
+            <hr />
           </div>
-
-          <hr />
+          <div className='app-header__selections'>
+            <h2>Rental Selections</h2>
+            <p>Movie: {selectedMovie.title.toUpperCase()}</p>
+            <p>Customer: {selectedCustomer.name.toUpperCase()}</p>
+            {
+              showRentalButton() ? 
+              <button onClick={checkout}>
+                Create Rental
+              </button> : ''
+            } 
+          </div>
 
         </header>
         {/*
@@ -138,7 +145,6 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             <Home />
-            { errorMessage ? <div><h2 className="error-msg">{errorMessage}</h2></div> : '' }
           </Route>
           <Route path="/search">
             <Search addMovieCreationCallback={ addMovieToLibrary }/>
