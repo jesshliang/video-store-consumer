@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchForm from './SearchForm';
 import LibraryItem from './LibraryItem';
+import './LibraryItem.css';
+import './Library.css';
 
 const Search = () => {
 
@@ -23,7 +25,6 @@ const Search = () => {
 				console.log(response);
 				for (let movie of response.data) {
 					searchList.push(
-					<li key={ movie.id }>
 						<LibraryItem
 							key={ movie.id }
 							id={ movie.id }
@@ -31,8 +32,8 @@ const Search = () => {
 							overview={ movie.overview }
 							releaseDate={ movie.release_date } 
 							externalID={ movie.external_id }
+							imageURL={ movie.image_url }
 						/>
-					</li>
 					);
 				};
 				setDisplaySearch(searchList);
@@ -48,9 +49,9 @@ const Search = () => {
 		<div>
 			<SearchForm addSearchCallback={ searchMovieDatabase } />
 
-			<ul>
+			<div className="show-all-movies">
         { displaySearch }
-      </ul>
+      </div>
 		</div>
   );
 

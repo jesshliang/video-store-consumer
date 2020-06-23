@@ -1,22 +1,21 @@
 import React from 'react';
+import './LibraryItem.css';
 
 const LibraryItem = (props) => {
   
   return(
-    <ul>
-			<li>
-				{ props.title }
-			</li>
-			<li>
-				{ props.overview }
-			</li>
-			<li>
-				{ props.releaseDate }
-			</li>
-			<li>
-				
-			</li>
-    </ul>
+		<section className="movie-listing">
+			<img src={ props.imageURL } alt={`poster for ${ props.title } `} />
+			<section>
+				<h3>{ props.title }</h3>
+				<p>
+					<strong>{ props.releaseDate }</strong>
+				</p>
+				<p>
+					{ props.overview }
+				</p>
+			</section>
+		</section>
   );
 
 }
