@@ -103,12 +103,8 @@ const App = () => {
       console.log(response)
     })
     .catch((error) => {
-<<<<<<< HEAD
-      setErrorMessage(error.message);
-=======
       setAddMovieAlert("This movie is already in the library.");
       console.log(error);
->>>>>>> feat-final-styling
     });
   };
 
@@ -172,15 +168,11 @@ const App = () => {
             />
           </Route>
           <Route path="/customers">
-<<<<<<< HEAD
             <CustomerCollection 
               customers={customerList} 
               onUpdateSelectedCustomer={updateSelectedCustomer} 
               selectedCustomer={selectedCustomer.id}
             />
-=======
-            <CustomerCollection customers={customerList} onUpdateSelected={updateSelected} selected={selected.id} />
->>>>>>> feat-final-styling
           </Route>
         </Switch>
       </div>

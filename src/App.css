@@ -1,11 +1,7 @@
 .app-header {
-<<<<<<< HEAD
   display: flex;
   justify-content: space-around;
-  background-color: #393e46;
-=======
   background-color: #0b0c10;
->>>>>>> feat-final-styling
   padding: 2em 2em 1em;
   text-align: center;
 }
