@@ -27,16 +27,22 @@ const App = () => {
       })
   }, []);
 
-  const checkout = () => {
-    axios.post(BASE_URL + 'rentals/Jaws/', {
-      customer_id: 1,
-      due_date: '2020/07/17'
+  const checkout = (rental) => {
+    const rental_params = BASE_URL + `rentals/${rental.movie}/check-out`;
+
+    axios({
+      method: 'post',
+      url: rental_params,
+      params: {
+        customer_id: rental.customer,
+        due_date: '2020/12/30'
+      }
     })
     .then((response) => {
       console.log(response)
     })
     .catch((error) => {
-      console.log(error.messages)
+      console.log(error)
     });
   };
 
@@ -72,7 +78,8 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             <Home />
-            <NewRentalForm />
+            { errorMessage ? <div><h2 className="error-msg">{errorMessage}</h2></div> : '' }
+            <NewRentalForm addRentalCallback={checkout}/>
           </Route>
           <Route path="/search">
             <Search />
