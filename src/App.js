@@ -10,6 +10,7 @@ import axios from 'axios';
 import Search from './components/Search';
 import Library from './components/Library';
 import CustomerCollection from './components/CustomerCollection';
+import NewRentalForm from './components/NewRentalForm';
 
 const App = () => {
   const BASE_URL = 'http://localhost:3000/'
@@ -29,12 +30,12 @@ const App = () => {
   const checkout = () => {
     axios.post(BASE_URL + 'rentals/Jaws/', {
       customer_id: 1,
-      due_date: 2020/07/17
+      due_date: '2020/07/17'
     })
     .then((response) => {
       console.log(response)
     })
-    .catch(() => {
+    .catch((error) => {
       console.log(error.messages)
     });
   };
@@ -71,6 +72,7 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             <Home />
+            <NewRentalForm />
           </Route>
           <Route path="/search">
             <Search />

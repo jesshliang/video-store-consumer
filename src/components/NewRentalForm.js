@@ -1,8 +1,23 @@
 import React, { useState } from 'react';
-import './NewRentalForm.css';
 
 const NewRentalForm = (props) => {
-  
+  const [formFields, setFormFields] = useState({
+    movie: '',
+    customer: '',
+  });
+
+  const onIputChange = (event) => {
+    const newFormFields = {
+      ...formFields,
+    }
+    newFormFields[event.target.movie] = event.target.value;
+    setFormFields(newFormFields);
+  }
+
+  return(
+    <h1>hi</h1>
+  )
+
 }
 
 
