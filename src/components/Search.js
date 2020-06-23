@@ -1,52 +1,30 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import SearchForm from './SearchForm';
 
-const Search = (props) => {
+const Search = () => {
 
-	const [formFields, setFormFields] = useState({
-		searchTerm: '',
-	});
+	const BASE_URL = "http://localhost:3000/"
+	const [errorMessage, setErrorMessage] = useState(null);
 
-	const onFieldChange = (event) => {
-		const updatedFormState = {...formFields};
 
-		updatedFormState[event.target.name] = event.target.value;
-		setFormFields(updatedFormState);
-	};
-
-	const onSubmitHandler = (event) => {
-		event.preventDefault();
-
-		if(formFields.text || formFields.emoji){
-			// ADD CALLBACK FUNCTION FOR SHOWING SEARCH RESULTS
-			props.addCardCallBack(formFields)
-		}
-
-		setFormFields({
-			searchTerm: '',
-		})
+	const searchMovieDatabase = (searchTerm) => {
+		console.log(searchTerm)
+		axios.get(BASE_URL + "movies/" + searchTerm)
+    .then( (response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      setErrorMessage(error.message);
+      console.log(error.message);
+    });
 	};
 
   return (
-		<form onSubmit={ onSubmitHandler }>
-			<h2>Search for a Movie</h2>
-			<div>
-				<div>
-					{/* <label className="new-card-form__form-label" htmlFor="text">Text: </label> */}
-					<input
-						name="searchTerm"
-						id="text"
-						onChange={ onFieldChange }
-						value={ formFields.text }
-					/>
-				</div>
-				<input
-					type="submit"
-					name="submit"
-					value="Submit"
-					onClick={ onSubmitHandler }
-				/>
-			</div>
-		</form>
+		<div>
+			<SearchForm addSearchCallback={ searchMovieDatabase } />
+
+		</div>
   );
 
 }

@@ -14,14 +14,14 @@ const Library = () => {
       console.log(response);
       for (let movie of response.data) {
         newMovieList.push(
-        <li key={movie.id}>
+        <li key={ movie.id }>
           <LibraryItem
-            key={movie.id}
-            id={movie.id}
-            title={movie.title}
-            overview={movie.overview}
-            releaseDate ={movie.release_date} 
-            externalID = {movie.external_id}
+            key={ movie.id }
+            id={ movie.id }
+            title={ movie.title }
+            overview={ movie.overview }
+            releaseDate={ movie.release_date } 
+            externalID={ movie.external_id }
           />
         </li>
         );
@@ -35,9 +35,13 @@ const Library = () => {
   }, []);
 
   return(
-    <ul>
-			{ movieList }
-    </ul>
+    <div>
+      <h2>All Movies</h2>
+      <ul>
+        { movieList }
+      </ul>
+    </div>
+
   );
 
 }

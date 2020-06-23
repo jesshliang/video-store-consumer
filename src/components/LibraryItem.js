@@ -13,6 +13,9 @@ const LibraryItem = (props) => {
 			<li>
 				{ props.releaseDate }
 			</li>
+			<li>
+				
+			</li>
     </ul>
   );
 
