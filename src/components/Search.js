@@ -12,7 +12,8 @@ const Search = () => {
 		console.log(searchTerm)
 		axios.get(BASE_URL + "movies/" + searchTerm)
     .then( (response) => {
-      console.log(response);
+			console.log(response);
+			
     })
     .catch((error) => {
       setErrorMessage(error.message);
