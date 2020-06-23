@@ -2,21 +2,37 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types'
 import './Customer.css'
 
-const Customer = ({name, registered, address, city, state, movies_checked_out_count}) => {
-  const [selected, setSelected] = useState(false);
-  const onButtonClick = () => setSelected(!selected);
+const Customer = (props) => {
+
+  const onButtonClick = () => {
+    const newSelected = {
+      id: props.id,
+      name: props.name,
+    }
+    props.onUpdateSelected(newSelected)
+  }
+
+  const selected = () => {
+    console.log(props.selected_id)
+    if (props.id === props.selected_id) {
+      return true
+    } else {
+      return false
+    }
+  }
 
   return(
     <div className="customer-box" >
       <div className='customer-info'>
-        <p>Customer: {name}</p>
-        <p>Registered: {registered}</p>
-        <p>Address: {address}</p>
-        <p>City: {city}</p>
-        <p>State: {state}</p>
-        <p>Moves checked out: {movies_checked_out_count}</p>
+        <p>Customer: {props.name}</p>
+        <p>Registered: {props.registered}</p>
+        <p>Address: {props.address}</p>
+        <p>City: {props.city}</p>
+        <p>State: {props.state}</p>
+        <p>Moves checked out: {props.movies_checked_out_count}</p>
+        <p>selected: {props.selected}</p>
         <button onClick={onButtonClick}>
-          {selected ? 'Unselect' : 'Select'}
+          {selected() ? 'Selected' : 'Select'}
         </button>
       </div>
     </div>

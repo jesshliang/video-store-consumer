@@ -14,6 +14,10 @@ import NewRentalForm from './components/NewRentalForm';
 
 const App = () => {
   const BASE_URL = 'http://localhost:3000/'
+  const [selected, setSelected] = useState({
+    name: '',
+    id: null,
+  })
   const [customerList, setCustomerList] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -26,6 +30,15 @@ const App = () => {
         setErrorMessage(error.message);
       })
   }, []);
+
+  const updateSelected = (newSelected) => {
+    console.log(newSelected)
+
+    setSelected({
+      name: newSelected.name,
+      id: newSelected.id
+    })
+  };
 
   const checkout = (rental) => {
     const rental_params = BASE_URL + `rentals/${rental.movie}/check-out`;
@@ -69,6 +82,7 @@ const App = () => {
         </div>
 
         <div className='rental-form'>
+          { selected.name }
           <NewRentalForm addRentalCallback={checkout}/>
         </div>
 
@@ -93,7 +107,7 @@ const App = () => {
             <Library />
           </Route>
           <Route path="/customers">
-            <CustomerCollection customers={customerList}/>
+            <CustomerCollection customers={customerList} onUpdateSelected={updateSelected} selected={selected.id}/>
           </Route>
         </Switch>
       </div>

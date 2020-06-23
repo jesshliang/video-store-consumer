@@ -49,7 +49,7 @@ const NewRentalForm = (props) => {
             id="customer"
             name="customer"
             onChange={onInputChange}
-            value={formFields.customer.id}
+            value={formFields.customer}
           />
         </div>
         <input
@@ -63,4 +63,4 @@ const NewRentalForm = (props) => {
 }
 
 
-export default NewRentalForm
+export default NewRentalForm;
