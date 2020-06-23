@@ -16,8 +16,8 @@ const CustomerCollection = (props) => {
         city={customer.city}
         state={customer.state}
         movies_checked_out_count={customer.movies_checked_out_count}
-        selected_id={props.selected}
-        onUpdateSelected={props.onUpdateSelected}
+        selected_id={props.selectedCustomer}
+        onUpdateSelected={props.onUpdateSelectedCustomer}
       />
     );
   });

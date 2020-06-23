@@ -14,7 +14,7 @@ import NewRentalForm from './components/NewRentalForm';
 
 const App = () => {
   const BASE_URL = 'http://localhost:3000/'
-  const [selected, setSelected] = useState({
+  const [selectedCustomer, setSelectedCustomer] = useState({
     name: '',
     id: null,
   })
@@ -31,10 +31,10 @@ const App = () => {
       })
   }, []);
 
-  const updateSelected = (newSelected) => {
+  const updateSelectedCustomer = (newSelected) => {
     console.log(newSelected)
 
-    setSelected({
+    setSelectedCustomer({
       name: newSelected.name,
       id: newSelected.id
     })
@@ -95,7 +95,7 @@ const App = () => {
 
 
           <div className='rental-form'>
-            { selected.name }
+            { selectedCustomer.name }
             <NewRentalForm addRentalCallback={checkout}/>
           </div>
 
@@ -122,7 +122,11 @@ const App = () => {
             <Library />
           </Route>
           <Route path="/customers">
-            <CustomerCollection customers={customerList} onUpdateSelected={updateSelected} selected={selected.id}/>
+            <CustomerCollection 
+              customers={customerList} 
+              onUpdateSelectedCustomer={updateSelectedCustomer} 
+              selectedCustomer={selectedCustomer.id}
+            />
           </Route>
         </Switch>
       </div>
