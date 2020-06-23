@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const Search = (props) => {
 
 	const [formFields, setFormFields] = useState({
-		searchTerm: '',
+		query: '',
 	});
 
 	const onFieldChange = (event) => {
@@ -16,8 +16,8 @@ const Search = (props) => {
 	const onSubmitHandler = (event) => {
 		event.preventDefault();
 
-		if(formFields.searchTerm){
-			props.addSearchCallback(formFields.searchTerm)
+		if(formFields.query){
+			props.addSearchCallback(formFields.query)
 		}
 	};
 
@@ -28,7 +28,7 @@ const Search = (props) => {
 				<div>
 					{/* <label className="new-card-form__form-label" htmlFor="text">Text: </label> */}
 					<input
-						name="searchTerm"
+						name="query"
 						id="text"
 						onChange={ onFieldChange }
 						value={ formFields.text }

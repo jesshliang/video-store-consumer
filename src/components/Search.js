@@ -10,7 +10,11 @@ const Search = () => {
 
 	const searchMovieDatabase = (searchTerm) => {
 		console.log(searchTerm)
-		axios.get(BASE_URL + "movies/" + searchTerm)
+		axios.get(BASE_URL + "movies/", {
+			params: {
+				query: searchTerm
+			}
+		})
     .then( (response) => {
 			console.log(response);
 			
