@@ -24,10 +24,12 @@ const CustomerCollection = (props) => {
 
   return(
     <div className="customers" >
-      { customerComponents }
+      <h2>All Customers</h2>
+      <div className="show-all-customers">
+        { customerComponents }
+      </div>
     </div>
   );
-
 }
 
 export default CustomerCollection;

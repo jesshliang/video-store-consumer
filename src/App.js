@@ -22,6 +22,7 @@ const App = () => {
     id: null,
   });
   const [customerList, setCustomerList] = useState([]);
+  const [movieList, setMovieList] = useState([]);
   const [successMessage, setSuccessMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -35,6 +36,15 @@ const App = () => {
       })
   }, []);
 
+  useEffect(() => {
+    axios.get(BASE_URL + "movies/")
+      .then((response) => {
+        setMovieList(response.data);
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      })
+  }, []);
 
 
   const updateSelectedCustomer = (newSelected) => {
@@ -73,12 +83,10 @@ const App = () => {
         due_date: '2020/12/30'
       }
     })
-    .then((response) => {
-      console.log(response)
+    .then(() => {
       setSuccessMessage("Successfully made rental")
     })
     .catch((error) => {
-      console.log(error)
       setErrorMessage(error.message);
     });
   };
@@ -93,7 +101,7 @@ const App = () => {
       console.log(response)
     })
     .catch((error) => {
-      console.log(error)
+      setErrorMessage(error.message);
     });
   };
 
@@ -151,6 +159,7 @@ const App = () => {
           </Route>
           <Route path="/library">
             <Library 
+              movies={movieList}
               onUpdateSelectedMovie={updateSelectedMovie}
               selectedMovie={selectedMovie.id}
             />
