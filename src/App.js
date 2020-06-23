@@ -10,7 +10,6 @@ import axios from 'axios';
 import Search from './components/Search';
 import Library from './components/Library';
 import CustomerCollection from './components/CustomerCollection';
-import NewRentalForm from './components/NewRentalForm';
 
 const App = () => {
   const BASE_URL = 'http://localhost:3000/'
@@ -124,7 +123,6 @@ const App = () => {
             <button onClick={checkout}>
               {showRentalButton() ? "Create Rental" : "Select Customer and Movie"}
             </button>
-            <NewRentalForm addRentalCallback={checkout}/>
           </div>
 
           <hr />
