@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types'
 import './Customer.css'
 
-const Customer = ({name, id, registered, address, city, state}) => {
+const Customer = ({name, registered, address, city, state, movies_checked_out_count}) => {
+  const [selected, setSelected] = useState(false);
+  const onButtonClick = () => setSelected(!selected);
 
   return(
     <div className="customer-box" >
@@ -12,6 +14,10 @@ const Customer = ({name, id, registered, address, city, state}) => {
         <p>Address: {address}</p>
         <p>City: {city}</p>
         <p>State: {state}</p>
+        <p>Moves checked out: {movies_checked_out_count}</p>
+        <button onClick={onButtonClick}>
+          {selected ? 'Unselect' : 'Select'}
+        </button>
       </div>
     </div>
   );
