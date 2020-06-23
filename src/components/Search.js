@@ -15,34 +15,33 @@ const Search = () => {
 	const searchMovieDatabase = (searchTerm) => {
 		console.log(searchTerm)
 
-		// useEffect(() => {
-			axios.get(BASE_URL + "movies/", {
-				params: {
-					query: searchTerm
-				}
-			})
-			.then( (response) => {
-				console.log(response);
-				for (let movie of response.data) {
-					searchList.push(
-						<LibraryItem
-							key={ movie.id }
-							id={ movie.id }
-							title={ movie.title }
-							overview={ movie.overview }
-							releaseDate={ movie.release_date } 
-							externalID={ movie.external_id }
-							imageURL={ movie.image_url }
-						/>
-					);
-				};
-				setDisplaySearch(searchList);
-			})
-			.catch((error) => {
-				setErrorMessage(error.message);
-				console.log(error.message);
-			});
-		// }, []);
+		axios.get(BASE_URL + "movies/", {
+			params: {
+				query: searchTerm
+			}
+		})
+		.then( (response) => {
+			console.log(response);
+			for (let movie of response.data) {
+				searchList.push(
+					<LibraryItem
+						key={ movie.id }
+						id={ movie.id }
+						title={ movie.title }
+						overview={ movie.overview }
+						releaseDate={ movie.release_date } 
+						externalID={ movie.external_id }
+						imageURL={ movie.image_url }
+					/>
+				);
+			};
+			setDisplaySearch(searchList);
+		})
+		.catch((error) => {
+			setErrorMessage(error.message);
+			console.log(error.message);
+		});
+	
 	};
 
   return (

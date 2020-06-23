@@ -15,23 +15,23 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <h1>Title of Our Movie App</h1>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/search">Search</Link>
-            </li>
-            <li>
-              <Link to="/library">Library</Link>
-            </li>
-            <li>
-              <Link to="/customers">Customers</Link>
-            </li>
-          </ul>
-
-          <hr />
+          <header className="app-header">
+            <h1>Title of Our Movie App</h1>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/search">Search</Link>
+              </li>
+              <li>
+                <Link to="/library">Library</Link>
+              </li>
+              <li>
+                <Link to="/customers">Customers</Link>
+              </li>
+            </ul>
+          </header>
 
           {/*
             A <Switch> looks through all its children <Route>

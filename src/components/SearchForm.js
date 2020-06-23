@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SearchForm.css'
 
 const Search = (props) => {
 
@@ -29,7 +30,7 @@ const Search = (props) => {
 					{/* <label className="new-card-form__form-label" htmlFor="text">Text: </label> */}
 					<input
 						name="query"
-						id="text"
+						className="input-search"
 						onChange={ onFieldChange }
 						value={ formFields.text }
 					/>
@@ -38,6 +39,7 @@ const Search = (props) => {
 					type="submit"
 					name="submit"
 					value="Submit"
+					className="input-search-button"
 					onClick={ onSubmitHandler }
 				/>
 			</div>
