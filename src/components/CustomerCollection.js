@@ -4,7 +4,7 @@ import Customer from './Customer';
 
 const API_URL_BASE = 'http://localhost:3000/customers';
 
-const Customers = () => {
+const CustomerCollection = () => {
   const [customerList, setCustomerList] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -45,4 +45,4 @@ const Customers = () => {
 
 }
 
-export default Customers;
+export default CustomerCollection;

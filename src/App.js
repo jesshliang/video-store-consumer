@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,56 +8,56 @@ import {
 import './App.css';
 import Search from './components/Search';
 import Library from './components/Library';
-import Customers from './components/Customers';
+import CustomerCollection from './components/CustomerCollection';
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div>
-          <h1>Title of Our Movie App</h1>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/search">Search</Link>
-            </li>
-            <li>
-              <Link to="/library">Library</Link>
-            </li>
-            <li>
-              <Link to="/customers">Customers</Link>
-            </li>
-          </ul>
+const App = () => {
 
-          <hr />
 
-          {/*
-            A <Switch> looks through all its children <Route>
-            elements and renders the first one whose path
-            matches the current URL. Use a <Switch> any time
-            you have multiple routes, but you want only one
-            of them to render at a time
-          */}
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/search">
-              <Search />
-            </Route>
-            <Route path="/library">
-              <Library />
-            </Route>
-            <Route path="/customers">
-              <Customers />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    );
-  }
+  return (
+    <Router>
+      <div>
+        <h1>Title of Our Movie App</h1>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/search">Search</Link>
+          </li>
+          <li>
+            <Link to="/library">Library</Link>
+          </li>
+          <li>
+            <Link to="/customers">Customers</Link>
+          </li>
+        </ul>
+
+        <hr />
+
+        {/*
+          A <Switch> looks through all its children <Route>
+          elements and renders the first one whose path
+          matches the current URL. Use a <Switch> any time
+          you have multiple routes, but you want only one
+          of them to render at a time
+        */}
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/search">
+            <Search />
+          </Route>
+          <Route path="/library">
+            <Library />
+          </Route>
+          <Route path="/customers">
+            <CustomerCollection />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
 }
 
 // You can think of these components as "pages"
