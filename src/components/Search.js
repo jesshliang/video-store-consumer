@@ -1,52 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import SearchForm from './SearchForm';
+import LibraryItem from './LibraryItem';
+import './LibraryItem.css';
+import './Library.css';
+import './Search.css';
 
-const Search = (props) => {
+const Search = () => {
 
-	const [formFields, setFormFields] = useState({
-		searchTerm: '',
-	});
+	const BASE_URL = "http://localhost:3000/"
+	const [errorMessage, setErrorMessage] = useState(null);
+	const [displaySearch, setDisplaySearch] = useState([]);
+  const searchList = [];
 
-	const onFieldChange = (event) => {
-		const updatedFormState = {...formFields};
+	const searchMovieDatabase = (searchTerm) => {
+		console.log(searchTerm)
 
-		updatedFormState[event.target.name] = event.target.value;
-		setFormFields(updatedFormState);
-	};
-
-	const onSubmitHandler = (event) => {
-		event.preventDefault();
-
-		if(formFields.text || formFields.emoji){
-			// ADD CALLBACK FUNCTION FOR SHOWING SEARCH RESULTS
-			props.addCardCallBack(formFields)
-		}
-
-		setFormFields({
-			searchTerm: '',
+		axios.get(BASE_URL + "movies/", {
+			params: {
+				query: searchTerm
+			}
 		})
+		.then( (response) => {
+			console.log(response);
+			for (let movie of response.data) {
+				searchList.push(
+					<section>
+						<LibraryItem
+							key={ movie.id }
+							id={ movie.id }
+							title={ movie.title }
+							overview={ movie.overview }
+							releaseDate={ movie.release_date } 
+							externalID={ movie.external_id }
+							imageURL={ movie.image_url }
+						/>
+						<a href="" className="item-link">Add to Library</a>
+					</section>
+				);
+			};
+			setDisplaySearch(searchList);
+		})
+		.catch((error) => {
+			setErrorMessage(error.message);
+			console.log(error.message);
+		});
+	
 	};
 
   return (
-		<form onSubmit={ onSubmitHandler }>
-			<h2>Search for a Movie</h2>
-			<div>
-				<div>
-					{/* <label className="new-card-form__form-label" htmlFor="text">Text: </label> */}
-					<input
-						name="searchTerm"
-						id="text"
-						onChange={ onFieldChange }
-						value={ formFields.text }
-					/>
-				</div>
-				<input
-					type="submit"
-					name="submit"
-					value="Submit"
-					onClick={ onSubmitHandler }
-				/>
-			</div>
-		</form>
+		<div>
+			<SearchForm addSearchCallback={ searchMovieDatabase } />
+
+			<div className="show-all-movies">
+        { displaySearch }
+      </div>
+		</div>
   );
 
 }

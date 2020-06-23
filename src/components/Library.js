@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Library.css';
 import LibraryItem from './LibraryItem';
 
 const Library = () => {
@@ -14,16 +15,17 @@ const Library = () => {
       console.log(response);
       for (let movie of response.data) {
         newMovieList.push(
-        <li key={movie.id}>
-          <LibraryItem
-            key={movie.id}
-            id={movie.id}
-            title={movie.title}
-            overview={movie.overview}
-            releaseDate ={movie.release_date} 
-            externalID = {movie.external_id}
-          />
-        </li>
+          <section>
+            <LibraryItem
+              key={ movie.id }
+              id={ movie.id }
+              title={ movie.title }
+              overview={ movie.overview }
+              releaseDate={ movie.release_date } 
+              externalID={ movie.external_id }
+              imageURL={ movie.image_url }
+            />
+          </section>
         );
       };
       setMovieList(newMovieList);
@@ -35,9 +37,13 @@ const Library = () => {
   }, []);
 
   return(
-    <ul>
-			{ movieList }
-    </ul>
+    <div>
+      <h2>All Movies</h2>
+      <div className="show-all-movies">
+        { movieList }
+      </div>
+    </div>
+
   );
 
 }
