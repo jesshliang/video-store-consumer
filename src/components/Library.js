@@ -15,15 +15,17 @@ const Library = () => {
       console.log(response);
       for (let movie of response.data) {
         newMovieList.push(
-          <LibraryItem
-            key={ movie.id }
-            id={ movie.id }
-            title={ movie.title }
-            overview={ movie.overview }
-            releaseDate={ movie.release_date } 
-            externalID={ movie.external_id }
-            imageURL={ movie.image_url }
-          />
+          <section>
+            <LibraryItem
+              key={ movie.id }
+              id={ movie.id }
+              title={ movie.title }
+              overview={ movie.overview }
+              releaseDate={ movie.release_date } 
+              externalID={ movie.external_id }
+              imageURL={ movie.image_url }
+            />
+          </section>
         );
       };
       setMovieList(newMovieList);

@@ -4,6 +4,7 @@ import SearchForm from './SearchForm';
 import LibraryItem from './LibraryItem';
 import './LibraryItem.css';
 import './Library.css';
+import './Search.css';
 
 const Search = () => {
 
@@ -24,15 +25,18 @@ const Search = () => {
 			console.log(response);
 			for (let movie of response.data) {
 				searchList.push(
-					<LibraryItem
-						key={ movie.id }
-						id={ movie.id }
-						title={ movie.title }
-						overview={ movie.overview }
-						releaseDate={ movie.release_date } 
-						externalID={ movie.external_id }
-						imageURL={ movie.image_url }
-					/>
+					<section>
+						<LibraryItem
+							key={ movie.id }
+							id={ movie.id }
+							title={ movie.title }
+							overview={ movie.overview }
+							releaseDate={ movie.release_date } 
+							externalID={ movie.external_id }
+							imageURL={ movie.image_url }
+						/>
+						<a href="" className="item-link">Add to Library</a>
+					</section>
 				);
 			};
 			setDisplaySearch(searchList);
