@@ -3,24 +3,24 @@ import './LibraryItem.css';
 
 const LibraryItem = (props) => {
 	
-  const onButtonClick = () => {
-		console.log(props)
-    const newSelected = {
-      id: props.id,
-      title: props.title,
-    }
-    props.onUpdateSelected(newSelected)
-	}
+  // const onButtonClick = () => {
+	// 	console.log(props)
+  //   const newSelected = {
+  //     id: props.id,
+  //     title: props.title,
+  //   }
+  //   props.onUpdateSelected(newSelected)
+	// }
 	
-	const selected = () => {
-		console.log(props)
-		console.log("hi")
-    if (props.id === props.selected_id) {
-      return true
-    } else {
-      return false
-    }
-	}
+	// const selected = () => {
+	// 	console.log(props)
+	// 	console.log("hi")
+  //   if (props.id === props.selected_id) {
+  //     return true
+  //   } else {
+  //     return false
+  //   }
+	// }
 	
   return(
 		<section className="movie-listing">
@@ -33,10 +33,10 @@ const LibraryItem = (props) => {
 				<p>
 					{ props.overview }
 				</p>
-				<button onClick={onButtonClick}>
+				{/* <button onClick={onButtonClick}>
 					{console.log(props.selected_id)}
           {selected() ? 'Selected' : 'Select'}
-      </button>
+      	</button> */}
 			</section>
 
 		</section>
