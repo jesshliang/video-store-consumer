@@ -1,12 +1,13 @@
 .app-header {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
   background-color: #0b0c10;
   padding: 2em 2em 1em;
   text-align: center;
 }
 
 .app-header__nav {
+  grid-column: 2 / 3;
   min-width: 700px;
 }
 
@@ -21,6 +22,7 @@
   justify-content: space-around;
   list-style-type: none;
   margin: 0;
+  padding: 0;
   text-transform: uppercase;
 }
 
@@ -37,8 +39,9 @@
 }
 
 .app-header__selections {
+  grid-column: 3 / 4;
   max-height: 150px;
-  box-shadow: 7px 7px;
+  box-shadow: 7px 7px #AC3B61;
   background-color: rgb(72, 72, 72);
   padding: 1em 2em 2em 1em;
 }
