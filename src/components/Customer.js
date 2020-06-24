@@ -30,16 +30,16 @@ const Customer = (props) => {
       </section>
 
       <section className="rental-info">
-        <h4>Rental Info:</h4>
         <ul>
+          <li><strong>Rental Info:</strong></li>
           <li>Moves checked out: {props.movies_checked_out_count}</li>
           <li>Credit: ${props.account_credit}</li>
         </ul>
       </section>
 
       <section className="address-info">
-          <h4>Address: </h4>
           <ul>
+            <li><strong>Address: </strong></li>
             <li>{props.address}</li>
             <li>{props.city}, {props.state} {props.zip}</li>
             <li></li>
