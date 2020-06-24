@@ -15,10 +15,6 @@ const LibraryItem = (props) => {
 				<p>
 					{ props.overview }
 				</p>
-				<button onClick={onButtonClick}>
-					{console.log(props.selected_id)}
-          {selected() ? 'Selected' : 'Select'}
-      	</button>
 			</section>
 		</section>
   );
