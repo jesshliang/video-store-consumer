@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Customer from './Customer';
-
+import './CustomerCollection.css';
 
 const CustomerCollection = (props) => {
 
@@ -11,11 +11,16 @@ const CustomerCollection = (props) => {
         id={customer.id}
         key={customer.id}
         name={customer.name}
-        registered={customer.registered_at}
+        phone={customer.phone}
+
+        movies_checked_out_count={customer.movies_checked_out_count}
+        account_credit={customer.account_credit}
+
         address={customer.address}
         city={customer.city}
         state={customer.state}
-        movies_checked_out_count={customer.movies_checked_out_count}
+        zip={customer.postal_code}
+        
         selected_id={props.selectedCustomer}
         onUpdateSelected={props.onUpdateSelectedCustomer}
       />
@@ -23,12 +28,12 @@ const CustomerCollection = (props) => {
   });
 
   return(
-    <div className="customers" >
+    <section>
       <h2>All Customers</h2>
-      <div className="show-all-customers">
+      <section className="customers">
         { customerComponents }
-      </div>
-    </div>
+      </section>
+    </section>
   );
 }
 

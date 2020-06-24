@@ -36,12 +36,10 @@ const LibraryItem = (props) => {
 				<button onClick={onButtonClick}>
 					{console.log(props.selected_id)}
           {selected() ? 'Selected' : 'Select'}
-      </button>
+      	</button>
 			</section>
-
 		</section>
   );
-
 }
 
 export default LibraryItem;
