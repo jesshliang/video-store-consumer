@@ -1,3 +1,9 @@
+.add-movie-alert {
+	background-color: #cedceb;
+	margin-top: 2em;
+	padding: 1em;
+}
+
 .item-link {
 	color: #45A29E;
 	background-color: #cedceb;
@@ -12,8 +18,8 @@
 	font-style: italic;
 }
 
-.add-movie-alert {
-	background-color: #cedceb;
-	margin-top: 2em;
-	padding: 1em;
+.show-all-movies {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }

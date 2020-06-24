@@ -131,7 +131,6 @@ const App = () => {
 
             { errorMessage ? <div><h2 className="error-msg">{errorMessage}</h2></div> : '' }
 
-            <hr />
           </div>
           <div className='app-header__selections'>
             <h2>Rental Selections</h2>

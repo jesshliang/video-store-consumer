@@ -25,7 +25,7 @@ const CustomerCollection = (props) => {
 
   return(
     <div className="customers" >
-      <h2>All Customers</h2>
+      <h1>All Customers</h1>
       <div className="show-all-customers">
         { customerComponents }
       </div>

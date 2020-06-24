@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './Library.css';
-import './Search.css';
+import PropTypes from 'prop-types';
 import LibraryItem from './LibraryItem';
+import './Library.css';
 
 const Library = (props) => {
 
@@ -54,6 +53,14 @@ const Library = (props) => {
       </div>
     </div>
   );
+
 }
+
+LibraryItem.propTypes = {
+	onUpdateSelectedMovie: PropTypes.func.isRequired,
+	movies: PropTypes.array.isRequired,
+	selectedMovie: PropTypes.string.isRequired,
+};
+
 
 export default Library;

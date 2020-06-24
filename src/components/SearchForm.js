@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './SearchForm.css'
 
-const Search = (props) => {
+const SearchForm = (props) => {
 
 	const [formFields, setFormFields] = useState({
 		query: '',
@@ -27,7 +28,6 @@ const Search = (props) => {
 			<h1>Search for a Movie</h1>
 			<div>
 				<div>
-					{/* <label className="new-card-form__form-label" htmlFor="text">Text: </label> */}
 					<input
 						name="query"
 						className="input-search"
@@ -44,8 +44,12 @@ const Search = (props) => {
 				/>
 			</div>
 		</form>
-  );
-
+	);
+	
 }
 
-export default Search;
+SearchForm.propTypes = {
+  addSearchCallback: PropTypes.func.isRequired
+};
+
+export default SearchForm;

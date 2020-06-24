@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Link
-} from "react-router-dom";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import SearchForm from './SearchForm';
 import LibraryItem from './LibraryItem';
-import './LibraryItem.css';
-import './Library.css';
 import './Search.css';
 
 const Search = (props) => {
@@ -69,8 +65,13 @@ const Search = (props) => {
         { displaySearch }
       </div>
 		</div>
-  );
-
+	);
+	
 }
+
+Search.propTypes = {
+  addMovieCreationCallback: PropTypes.func.isRequired,
+  addMovieAlert: PropTypes.func.isRequired,
+};
 
 export default Search;
