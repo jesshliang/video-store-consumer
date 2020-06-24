@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/video-store-consumer/static/css/main.f6af9f5a.chunk.css",
+    "main.js": "/video-store-consumer/static/js/main.56724ab3.chunk.js",
+    "main.js.map": "/video-store-consumer/static/js/main.56724ab3.chunk.js.map",
+    "runtime-main.js": "/video-store-consumer/static/js/runtime-main.888f3c54.js",
+    "runtime-main.js.map": "/video-store-consumer/static/js/runtime-main.888f3c54.js.map",
+    "static/js/2.25fdbda6.chunk.js": "/video-store-consumer/static/js/2.25fdbda6.chunk.js",
+    "static/js/2.25fdbda6.chunk.js.map": "/video-store-consumer/static/js/2.25fdbda6.chunk.js.map",
+    "index.html": "/video-store-consumer/index.html",
+    "precache-manifest.500f47344ad4b0a73328ed2b2b2c7f81.js": "/video-store-consumer/precache-manifest.500f47344ad4b0a73328ed2b2b2c7f81.js",
+    "service-worker.js": "/video-store-consumer/service-worker.js",
+    "static/css/main.f6af9f5a.chunk.css.map": "/video-store-consumer/static/css/main.f6af9f5a.chunk.css.map",
+    "static/js/2.25fdbda6.chunk.js.LICENSE.txt": "/video-store-consumer/static/js/2.25fdbda6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.888f3c54.js",
+    "static/js/2.25fdbda6.chunk.js",
+    "static/css/main.f6af9f5a.chunk.css",
+    "static/js/main.56724ab3.chunk.js"
+  ]
+}
