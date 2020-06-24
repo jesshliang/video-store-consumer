@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Link
-} from "react-router-dom";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import SearchForm from './SearchForm';
 import LibraryItem from './LibraryItem';
-import './LibraryItem.css';
-import './Library.css';
 import './Search.css';
 
 const Search = (props) => {
@@ -20,9 +16,6 @@ const Search = (props) => {
 		console.log(searchTerm)
 
 		const onSubmitHandler = (movie) => {
-			// console.log(event);
-			// event.preventDefault();
-	
 			props.addMovieCreationCallback(movie);
 		};
 
@@ -45,7 +38,7 @@ const Search = (props) => {
 							externalID={ movie.external_id }
 							imageURL={ movie.image_url }
 						/>
-						<Link onClick={ () => onSubmitHandler(movie) } className="item-link">Add to Library</Link>
+						<button onClick={ () => onSubmitHandler(movie) } className="item-link">Add to Library</button>
 					</section>
 				);
 			};
@@ -62,12 +55,23 @@ const Search = (props) => {
 		<div>
 			<SearchForm addSearchCallback={ searchMovieDatabase } />
 
+			{ props.addMovieAlert !== '' &&
+        <p className="add-movie-alert">
+					{ props.addMovieAlert }
+				</p>
+      }
+
 			<div className="show-all-movies">
         { displaySearch }
       </div>
 		</div>
-  );
-
+	);
+	
 }
+
+Search.propTypes = {
+  addMovieCreationCallback: PropTypes.func.isRequired,
+  addMovieAlert: PropTypes.func.isRequired,
+};
 
 export default Search;

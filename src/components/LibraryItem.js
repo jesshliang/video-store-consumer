@@ -1,26 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './LibraryItem.css';
 
 const LibraryItem = (props) => {
-	
-  const onButtonClick = () => {
-		console.log(props)
-    const newSelected = {
-      id: props.id,
-      title: props.title,
-    }
-    props.onUpdateSelected(newSelected)
-	}
-	
-	const selected = () => {
-		console.log(props)
-		console.log("hi")
-    if (props.id === props.selected_id) {
-      return true
-    } else {
-      return false
-    }
-	}
 	
   return(
 		<section className="movie-listing">
@@ -41,5 +23,12 @@ const LibraryItem = (props) => {
 		</section>
   );
 }
+
+LibraryItem.propTypes = {
+	title: PropTypes.string.isRequired,
+	releaseDate: PropTypes.string.isRequired,
+	overview: PropTypes.string.isRequired,
+	imageURL: PropTypes.string.isRequired,
+};
 
 export default LibraryItem;

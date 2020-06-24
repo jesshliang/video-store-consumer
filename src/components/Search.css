@@ -1,7 +1,25 @@
-.item-link {
-	display: block;
-	background-color: #888;
-	width: 40vw;
-	margin: 0 1em 2em;
+.add-movie-alert {
+	background-color: #cedceb;
+	margin-top: 2em;
 	padding: 1em;
+}
+
+.item-link {
+	color: #45A29E;
+	background-color: #cedceb;
+	border: none;
+	font-size: 1em;
+	margin: 0 1em 2em;
+	padding: 1em 2em;
+	text-decoration: none;
+}
+
+.item-link:hover {
+	font-style: italic;
+}
+
+.show-all-movies {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
