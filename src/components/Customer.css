@@ -1,8 +1,12 @@
 .customer-listing {
-	background-color: #ccc;
+	background-color: #f7f9fb;
 	width: 20vw;
 	margin: 1em;
 	padding: 1em;
+}
+
+.customer-name h2 {
+  color: #45A29E;
 }
 
 .rental-info ul {

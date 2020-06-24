@@ -57,6 +57,7 @@ const Customer = (props) => {
 Customer.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
 };
 
 export default Customer;
