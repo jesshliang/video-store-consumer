@@ -1,10 +1,10 @@
 .item-link {
 	color: #45A29E;
-	display: block;
 	background-color: #cedceb;
-	width: 40em;
+	border: none;
+	font-size: 1em;
 	margin: 0 1em 2em;
-	padding: 1em;
+	padding: 1em 2em;
 	text-decoration: none;
 }
 

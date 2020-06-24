@@ -42,7 +42,7 @@ const Search = (props) => {
 							externalID={ movie.external_id }
 							imageURL={ movie.image_url }
 						/>
-						<Link onClick={ () => onSubmitHandler(movie) } className="item-link">Add to Library</Link>
+						<button onClick={ () => onSubmitHandler(movie) } className="item-link">Add to Library</button>
 					</section>
 				);
 			};

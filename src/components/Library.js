@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Library.css';
+import './Search.css';
 import LibraryItem from './LibraryItem';
 
 const Library = (props) => {
@@ -36,7 +37,7 @@ const Library = (props) => {
           externalID={ movie.external_id }
           imageURL={ movie.image_url }
         /> 
-        <button onClick={ () => onButtonClick(movie) }>
+        <button onClick={ () => onButtonClick(movie) } className="item-link">
 					{console.log(props.selectedMovie)}
           {selected() ? 'Selected' : 'Select'}
       	</button>
