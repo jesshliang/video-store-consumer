@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import LibraryItem from './LibraryItem';
 import './Library.css';
@@ -61,6 +61,5 @@ LibraryItem.propTypes = {
 	movies: PropTypes.array.isRequired,
 	selectedMovie: PropTypes.string.isRequired,
 };
-
 
 export default Library;
