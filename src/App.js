@@ -85,6 +85,12 @@ const App = () => {
     })
     .then(() => {
       setSuccessMessage("Successfully made rental")
+      const newSelected = {
+        id: null,
+        name: ''
+      }
+      updateSelectedCustomer(newSelected)
+      updateSelectedMovie(newSelected)
     })
     .catch((error) => {
       setErrorMessage(error.message);
