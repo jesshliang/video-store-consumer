@@ -22,9 +22,10 @@ const LibraryItem = (props) => {
 
 LibraryItem.propTypes = {
 	title: PropTypes.string.isRequired,
-	releaseDate: PropTypes.string.isRequired,
-	overview: PropTypes.string.isRequired,
-	imageURL: PropTypes.string.isRequired,
+	releaseDate: PropTypes.string,
+	overview: PropTypes.string,
+	imageURL: PropTypes.string,
+	externalID: PropTypes.number.isRequired
 };
 
 export default LibraryItem;

@@ -140,8 +140,8 @@ const App = () => {
           </div>
           <div className='app-header__selections'>
             <h2>Rental Selections</h2>
-            <p>Movie: {selectedMovie.title.toUpperCase()}</p>
-            <p>Customer: {selectedCustomer.name.toUpperCase()}</p>
+            <p>Movie: {selectedMovie.title}</p>
+            <p>Customer: {selectedCustomer.name}</p>
             {
               showRentalButton() ? 
               <button onClick={checkout}>

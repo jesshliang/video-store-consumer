@@ -26,7 +26,7 @@ const Library = (props) => {
 
   const movieComponents = props.movies.map((movie) => {
     return (
-      <section>
+      <section key= { movie.id }>
         <LibraryItem
           key={ movie.id }
           id={ movie.id }
@@ -56,10 +56,10 @@ const Library = (props) => {
 
 }
 
-LibraryItem.propTypes = {
+Library.propTypes = {
 	onUpdateSelectedMovie: PropTypes.func.isRequired,
 	movies: PropTypes.array.isRequired,
-	selectedMovie: PropTypes.string.isRequired,
+	selectedMovie: PropTypes.string,
 };
 
 export default Library;

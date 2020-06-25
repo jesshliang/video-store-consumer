@@ -28,7 +28,7 @@ const Search = (props) => {
 			console.log(response);
 			for (let movie of response.data) {
 				searchList.push(
-					<section>
+					<section key={ movie.external_id }>
 						<LibraryItem
 							key={ movie.id }
 							id={ movie.id }
@@ -71,7 +71,7 @@ const Search = (props) => {
 
 Search.propTypes = {
   addMovieCreationCallback: PropTypes.func.isRequired,
-  addMovieAlert: PropTypes.func.isRequired,
+  addMovieAlert: PropTypes.string.isRequired,
 };
 
 export default Search;
