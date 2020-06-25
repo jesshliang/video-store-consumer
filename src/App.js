@@ -12,7 +12,7 @@ import Library from './components/Library';
 import CustomerCollection from './components/CustomerCollection';
 
 const App = () => {
-  const BASE_URL = 'https://example-env.eba-2un3hw2p.us-west-2.elasticbeanstalk.com/';
+  const BASE_URL = 'https://cors-anywhere.herokuapp.com/http://example-env.eba-2un3hw2p.us-west-2.elasticbeanstalk.com/';
   const [selectedCustomer, setSelectedCustomer] = useState({
     name: '',
     id: null,

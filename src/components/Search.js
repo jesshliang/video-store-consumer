@@ -7,7 +7,7 @@ import './Search.css';
 
 const Search = (props) => {
 
-	const BASE_URL = "https://example-env.eba-2un3hw2p.us-west-2.elasticbeanstalk.com/";
+	const BASE_URL = "https://cors-anywhere.herokuapp.com/http://example-env.eba-2un3hw2p.us-west-2.elasticbeanstalk.com/";
 	const [errorMessage, setErrorMessage] = useState(null);
 	const [displaySearch, setDisplaySearch] = useState([]);
   const searchList = [];
