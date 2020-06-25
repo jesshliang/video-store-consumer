@@ -122,16 +122,16 @@ const App = () => {
             <h1>Title of Our Movie App</h1>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/video-store-consumer">Home</Link>
               </li>
               <li>
-                <Link to="/search">Search</Link>
+                <Link to="/video-store-consumer/search">Search</Link>
               </li>
               <li>
-                <Link to="/library">Library</Link>
+                <Link to="/video-store-consumer/library">Library</Link>
               </li>
               <li>
-                <Link to="/customers">Customers</Link>
+                <Link to="/video-store-consumer/customers">Customers</Link>
               </li>
             </ul>
 
@@ -159,20 +159,20 @@ const App = () => {
           of them to render at a time
         */}
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/video-store-consumer/">
             <Home />
           </Route>
-          <Route path="/search">
+          <Route path="/video-store-consumer/search">
             <Search addMovieCreationCallback={ addMovieToLibrary } addMovieAlert={ addMovieAlert } />
           </Route>
-          <Route path="/library">
+          <Route path="/video-store-consumer/library">
             <Library 
               movies={movieList}
               onUpdateSelectedMovie={updateSelectedMovie}
               selectedMovie={selectedMovie.id}
             />
           </Route>
-          <Route path="/customers">
+          <Route path="/video-store-consumer/customers">
             <CustomerCollection 
               customers={customerList} 
               onUpdateSelectedCustomer={updateSelectedCustomer} 
