@@ -28,7 +28,7 @@ const CustomerCollection = (props) => {
 
   return(
     <section>
-      <h2>All Customers</h2>
+      <h1>All Customers</h1>
       <section className="customers">
         { customerComponents }
       </section>

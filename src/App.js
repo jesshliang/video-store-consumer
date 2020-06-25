@@ -119,7 +119,7 @@ const App = () => {
       <div>
         <header className="app-header">
           <div className='app-header__nav'>
-            <h1>Title of Our Movie App</h1>
+            <h1>The Movie App</h1>
             <ul>
               <li>
                 <Link to="/video-store-consumer">Home</Link>
@@ -191,7 +191,11 @@ const App = () => {
 function Home() {
   return (
     <div>
-      <h2>Home</h2>
+      <img 
+        src="https://i.imgur.com/C9BqQTO.png" 
+        alt="picture of film board and tickets" 
+        className="homepage-pic"
+      />
     </div>
   );
 }

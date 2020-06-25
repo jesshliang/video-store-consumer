@@ -42,7 +42,7 @@
   grid-column: 3 / 4;
   max-height: 150px;
   box-shadow: 7px 7px #AC3B61;
-  background-color: rgb(72, 72, 72);
+  background-color: #3c4754;
   padding: 1em 2em 2em 1em;
 }
 
@@ -55,3 +55,7 @@
   color:  white;
 }
 
+.homepage-pic {
+  margin-top: 1.5em;
+  width: 17em;
+}
