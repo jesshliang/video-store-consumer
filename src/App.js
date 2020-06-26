@@ -45,7 +45,7 @@ const App = () => {
       .catch((error) => {
         setErrorMessage(error.message);
       })
-  }, []);
+  }, [movieList]);
 
 
   const updateSelectedCustomer = (newSelected) => {
@@ -106,7 +106,8 @@ const App = () => {
     })
     .then((response) => {
       setAddMovieAlert(`${ response.data.title } added to library!`);
-      console.log(response)
+      console.log(response);
+      setAddMovieAlert(``);
     })
     .catch((error) => {
       setAddMovieAlert("This movie is already in the library.");
