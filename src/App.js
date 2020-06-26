@@ -107,7 +107,6 @@ const App = () => {
     .then((response) => {
       setAddMovieAlert(`${ response.data.title } added to library!`);
       console.log(response);
-      setAddMovieAlert(``);
     })
     .catch((error) => {
       setAddMovieAlert("This movie is already in the library.");
