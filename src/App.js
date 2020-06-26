@@ -45,7 +45,7 @@ const App = () => {
       .catch((error) => {
         setErrorMessage(error.message);
       })
-  }, [movieList]);
+  }, []);
 
 
   const updateSelectedCustomer = (newSelected) => {
