@@ -13,7 +13,6 @@ const Customer = (props) => {
   }
 
   const selected = () => {
-    console.log(props.selected_id)
     if (props.id === props.selected_id) {
       return true
     } else {

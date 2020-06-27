@@ -13,8 +13,6 @@ const Search = (props) => {
   const searchList = [];
 
 	const searchMovieDatabase = (searchTerm) => {
-		console.log(searchTerm)
-
 		const onSubmitHandler = (movie) => {
 			props.addMovieCreationCallback(movie);
 		};
@@ -25,7 +23,6 @@ const Search = (props) => {
 			}
 		})
 		.then( (response) => {
-			console.log(response);
 			for (let movie of response.data) {
 				searchList.push(
 					<section key={ movie.external_id }>
