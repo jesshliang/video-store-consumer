@@ -40,7 +40,8 @@ const App = () => {
   useEffect(() => {
     axios.get(BASE_URL + "movies/")
       .then((response) => {
-        setMovieList(response.data);
+        const getMovies = response.data;
+        setMovieList(getMovies);
       })
       .catch((error) => {
         setErrorMessage(error.message);
@@ -105,6 +106,9 @@ const App = () => {
       params: movie 
     })
     .then((response) => {
+      const newMovieList = movieList;
+      newMovieList.push(movie);
+      setMovieList(newMovieList);
       setAddMovieAlert(`${ response.data.title } added to library!`);
       console.log(response);
     })
